@@ -2,7 +2,7 @@ export const products = [
   {
     "slug": "elf-bar-fs18000-strawberry-grape-vape-shop-gurugram",
     "title": "ELF BAR FS18000 – Strawberry Grape",
-    "price": "Price on Request",
+    "price": "Rs. 1,900",
     "image": "assets/products/elf-bar-fs18000-strawberry-grape.jpeg",
     "category": "ELF BAR VAPE",
     "description": "ELF BAR FS18000 – Strawberry Grape is available at Vape Shop Gurugram with fast express delivery across Gurugram. A sweet strawberry and juicy grape blend in a high-puff device with a bright digital display.\n\nFlavour: Strawberry Grape\nPuff capacity: 18,000\n\nOrder on WhatsApp to confirm availability and delivery details.\n\nPackage includes: 1 x ELF BAR FS18000 Disposable Vape\n\nFor adult users only. Contains nicotine.",
@@ -17,7 +17,7 @@ export const products = [
   {
     "slug": "elf-bar-ep8000-peach-berry-vape-shop-gurugram",
     "title": "ELF BAR EP8000 – Peach Berry",
-    "price": "Price on Request",
+    "price": "Rs. 1,700",
     "image": "assets/products/elf-bar-ep8000-peach-berry.jpeg",
     "category": "ELF BAR VAPE",
     "description": "ELF BAR EP8000 – Peach Berry is available at Vape Shop Gurugram with fast express delivery across Gurugram. Juicy peach with tangy raspberry in a compact 8,000 puff device.\n\nFlavour: Peach Berry\nPuff capacity: 8,000\n\nOrder on WhatsApp to confirm availability and delivery details.\n\nPackage includes: 1 x ELF BAR EP8000 Disposable Vape\n\nFor adult users only. Contains nicotine.",
@@ -78,7 +78,7 @@ export const products = [
   {
     "slug": "elf-bar-ep8000-double-mango-vape-shop-gurugram",
     "title": "ELF BAR EP8000 – Double Mango",
-    "price": "Price on Request",
+    "price": "Rs. 1,700",
     "image": "assets/products/elf-bar-ep8000-double-mango.jpeg",
     "category": "ELF BAR VAPE",
     "description": "ELF BAR EP8000 – Double Mango is available at Vape Shop Gurugram with fast express delivery across Gurugram. Rich, sweet mango flavour in an 8,000 puff device.\n\nFlavour: Double Mango\nPuff capacity: 8,000\n\nOrder on WhatsApp to confirm availability and delivery details.\n\nPackage includes: 1 x ELF BAR EP8000 Disposable Vape\n\nFor adult users only. Contains nicotine.",
@@ -110,7 +110,7 @@ export const products = [
   {
     "slug": "elf-bar-ep8000-kiwi-passion-fruit-guava-vape-shop-gurugram",
     "title": "ELF BAR EP8000 – Kiwi Passion Fruit Guava",
-    "price": "Price on Request",
+    "price": "Rs. 1,700",
     "image": "assets/products/elf-bar-ep8000-kiwi-passion-fruit-guava.jpeg",
     "category": "ELF BAR VAPE",
     "description": "ELF BAR EP8000 – Kiwi Passion Fruit Guava is available at Vape Shop Gurugram with fast express delivery across Gurugram. A tropical mix of kiwi, passion fruit and guava.\n\nFlavour: Kiwi Passion Fruit Guava\nPuff capacity: 8,000\n\nOrder on WhatsApp to confirm availability and delivery details.\n\nPackage includes: 1 x ELF BAR EP8000 Disposable Vape\n\nFor adult users only. Contains nicotine.",
@@ -264,7 +264,7 @@ export const products = [
   {
     "slug": "elf-bar-fs18000-assorted-flavours-vape-shop-gurugram",
     "title": "ELF BAR FS18000 – Assorted Flavours",
-    "price": "Price on Request",
+    "price": "Rs. 1,900",
     "image": "assets/products/elf-bar-fs18000-assorted-flavours.jpeg",
     "category": "ELF BAR VAPE",
     "description": "ELF BAR FS18000 – Assorted (ask for available flavours) is available at Vape Shop Gurugram with fast express delivery across Gurugram. The FS18000 range in multiple colours. Message us on WhatsApp for the flavours currently in stock.\n\nFlavour: Assorted (ask for available flavours)\nPuff capacity: 18,000\n\nOrder on WhatsApp to confirm availability and delivery details.\n\nPackage includes: 1 x ELF BAR FS18000 Disposable Vape\n\nFor adult users only. Contains nicotine.",
@@ -436,7 +436,7 @@ export const products = [
   {
     "slug": "voopoo-argus-pod-empty-cartridge-vape-shop-gurugram",
     "title": "VOOPOO ARGUS Pod – Empty Cartridge",
-    "price": "Price on Request",
+    "price": "Rs. 2,999",
     "image": "assets/products/voopoo-argus-pod-empty-cartridge.jpeg",
     "category": "VAPE KITS",
     "description": "Replacement empty pod cartridge for the VOOPOO ARGUS series, available at Vape Shop Gurugram. Fill it with your own e-liquid and snap it onto your ARGUS device.\n\nOrder on WhatsApp to confirm availability, colours and delivery details.",
