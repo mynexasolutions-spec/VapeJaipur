@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ProductActions from '../../ProductActions';
 import ProductCard from '../../ProductCard';
+import { SITE, abs, canonical, shareImages, toJsonLd } from '../../../data/site';
 
 
 const CATEGORY_LABELS = {
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }) {
 
   if (!product) {
     return {
-      title: "Product Not Found | Vape Shop Jaipur",
+      title: { absolute: "Product Not Found | Vape Shop Gurugram" },
     };
   }
 
@@ -32,23 +33,24 @@ export async function generateMetadata({ params }) {
   // If the product doesn't have a specific description, use a generic one
   const cleanDescription = product.description
     ? product.description.substring(0, 150) + "..."
-    : `Buy ${product.title} online in Jaipur. Fast delivery, premium quality, and 100% authentic products. Order now on Vape Shop Jaipur.`;
+    : `Buy ${product.title} online in Gurugram. Fast delivery, premium quality, and 100% authentic products. Order now on Vape Shop Gurugram.`;
 
   return {
-    title: `${product.title} | Buy Online in Jaipur`,
+    title: `${product.title} | Buy Online in Gurugram`,
     description: cleanDescription,
-    keywords: `${product.title}, buy ${product.title} jaipur, ${product.category} jaipur, vape shop jaipur`,
+    keywords: `${product.title}, buy ${product.title} gurugram, ${product.title} gurgaon, ${product.category} gurugram, vape shop gurugram, vape store cyber city, vape shop cyber hub`,
+    alternates: canonical(`/product/${product.slug}`),
     openGraph: {
-      title: `${product.title} | Vape Shop Jaipur`,
+      title: `${product.title} | Vape Shop Gurugram`,
       description: cleanDescription,
-      url: `https://vapeshopjaipur.in/product/${product.slug}`,
-      images: [{ url: product.image, alt: product.title }],
+      url: abs(`/product/${product.slug}`),
+      images: shareImages([{ url: product.image, alt: product.title }]),
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.title} | Vape Shop Jaipur`,
+      title: `${product.title} | Vape Shop Gurugram`,
       description: cleanDescription,
-      images: [product.image],
+      images: shareImages([product.image]),
     }
   };
 }
@@ -61,13 +63,15 @@ export default async function ProductPage({ params }) {
     notFound();
   }
 
-  const numericPrice = (product.price || '').replace(/[^0-9.]/g, '').replace(/\.0+$/, '');
+  // "Rs. 2,750.00" -> "2750" (ignore the dot in "Rs.")
+  const priceMatch = (product.price || '').match(/\d[\d,]*(?:\.\d+)?/);
+  const numericPrice = priceMatch ? priceMatch[0].replace(/,/g, '').replace(/\.0+$/, '') : '';
   const productJsonLd = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.title,
     "image": product.image.startsWith('/') ? product.image : '/' + product.image,
-    "description": product.description || `Buy ${product.title} in Jaipur. Fast delivery, 100% authentic products.`,
+    "description": product.description || `Buy ${product.title} in Gurugram. Fast delivery, 100% authentic products.`,
     "brand": {
       "@type": "Brand",
       "name": product.category ? product.category.replace(" VAPE", "") : "Vape"
@@ -80,7 +84,7 @@ export default async function ProductPage({ params }) {
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
-          "name": "Vape Shop Jaipur"
+          "name": SITE.name
         }
       }
     } : {})
@@ -99,9 +103,9 @@ export default async function ProductPage({ params }) {
   ].slice(0, 4);
 
   const trust = [
-    { title: 'Express Delivery', text: 'Across Jaipur', icon: <><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></> },
+    { title: 'Express Delivery', text: 'Across Gurugram', icon: <><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></> },
     { title: '100% Authentic', text: 'Genuine products', icon: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></> },
-    { title: 'Cash on Delivery', text: 'Pay at your door', icon: <><rect x="2" y="6" width="20" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /><path d="M6 12h.01M18 12h.01" /></> },
+    { title: 'COD & UPI Payment', text: 'Pay at your door or by UPI', icon: <><rect x="2" y="6" width="20" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /><path d="M6 12h.01M18 12h.01" /></> },
     { title: 'WhatsApp Support', text: '24/7 ordering help', icon: <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z" /> },
   ];
 
@@ -109,7 +113,7 @@ export default async function ProductPage({ params }) {
     <main className="pd-page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(productJsonLd) }}
       />
       <div className="pd-container">
         <nav className="pd-breadcrumb" aria-label="Breadcrumb">
@@ -151,7 +155,7 @@ export default async function ProductPage({ params }) {
                 <span className="pd-price-label">Price</span>
                 <span className="pd-price">{product.price}</span>
               </div>
-              <span className="pd-ready">Ready to ship in Jaipur</span>
+              <span className="pd-ready">Ready to ship in Gurugram</span>
             </div>
 
             <ProductActions product={product} />
@@ -223,7 +227,7 @@ export default async function ProductPage({ params }) {
           </details>
           <details className="pd-policy">
             <summary>Shipping Policy <span aria-hidden="true">+</span></summary>
-            <p>Orders are processed within 24 hours. We offer fast express shipping across Jaipur and standard shipping to other major cities.</p>
+            <p>We offer 30-40 min express delivery across Gurugram, subject to your location and availability. Orders to other cities are processed within 24 hours.</p>
           </details>
           <details className="pd-policy">
             <summary>Privacy Policy <span aria-hidden="true">+</span></summary>

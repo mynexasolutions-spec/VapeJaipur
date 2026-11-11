@@ -46,7 +46,7 @@ function NavigationLinks({ handleNavLinkClick }) {
           </svg>
           Order on WhatsApp
         </a>
-        <p>Jaipur, Rajasthan &bull; Express delivery</p>
+        <p>Gurugram, Haryana &bull; Express delivery</p>
       </div>
     </nav>
   );
@@ -83,7 +83,7 @@ export default function Header() {
   // Build structured WhatsApp message for cart items
   const generateWhatsAppCartLink = () => {
     if (cart.length === 0) return '#';
-    let message = `*NEW CART ORDER - Vape Shop Jaipur*\n----------------------------------------\n\n`;
+    let message = `*NEW CART ORDER - Vape Shop Gurugram*\n----------------------------------------\n\n`;
     cart.forEach((item, index) => {
       message += `${index + 1}. *${item.title}*\n   - Quantity: ${item.quantity}\n   - Price: ${item.price}\n\n`;
     });
@@ -106,7 +106,7 @@ export default function Header() {
           
           <div className="logo">
             <Link href="/" onClick={handleNavLinkClick}>
-              <img src="/assets/logo.png" alt="Vape Shop Jaipur Logo" />
+              <img src="/assets/logo.png" alt="Vape Shop Gurugram Logo" />
             </Link>
           </div>
           

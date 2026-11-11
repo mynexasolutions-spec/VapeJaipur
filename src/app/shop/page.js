@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { products } from '../../data/products';
 import ProductCard from '../ProductCard';
+import { canonical } from '../../data/site';
 
 
 const categories = [
-  { name: "ALL PRODUCTS", label: "All Products", param: undefined, blurb: "Browse premium authentic vapes, kits, pods and coils with fast Jaipur express delivery." },
+  { name: "ALL PRODUCTS", label: "All Products", param: undefined, blurb: "Browse premium authentic vapes, kits, pods and coils with fast express delivery across Gurugram." },
   { name: "ELF BAR", label: "Elf Bar", param: "ELF BAR VAPE", blurb: "High-puff Elf Bar disposables: TE6000, EP8000, FS18000, Raya D3 and Ice King Pro." },
   { name: "AAOK", label: "AAOK", param: "AAOK VAPE", blurb: "Ultra high-puff AAOK disposables from 15,000 up to 90,000 puffs." },
   { name: "IGET VAPE", label: "IGET Vape", param: "IGET VAPE", blurb: "IGET MOVE B50000 dual-flavour rechargeable disposable." },
@@ -24,14 +25,16 @@ export async function generateMetadata({ searchParams }) {
 
   if (category) {
     return {
-      title: `${category} in Jaipur | Buy Online | Vape Shop Jaipur`,
-      description: `Buy premium ${category} vapes and accessories in Jaipur. Fast delivery, 100% authentic products. Order now on Vape Shop Jaipur.`,
+      title: { absolute: `${category} in Gurugram | Buy Online | Vape Shop Gurugram` },
+      description: `Buy premium ${category} vapes and accessories in Gurugram (Gurgaon). Fast delivery to Cyber City, Golf Course Road, Sohna Road & all sectors. 100% authentic products.`,
+      alternates: canonical(`/shop?category=${encodeURIComponent(category)}`),
     };
   }
 
   return {
-    title: "Shop All Vapes in Jaipur | Disposable Vapes & Pods | Vape Shop Jaipur",
-    description: "Browse our complete collection of disposable vapes, vape kits, pods and coils in Jaipur. Shop top brands like Elf Bar, AAOK, IGET and VOOPOO with fast delivery.",
+    title: { absolute: "Shop All Vapes in Gurugram | Disposable Vapes & Pods | Vape Shop Gurugram" },
+    description: "Browse our complete collection of disposable vapes, vape kits, pods and coils in Gurugram (Gurgaon). Shop top brands like Elf Bar, AAOK, IGET and VOOPOO with fast delivery across the city.",
+    alternates: canonical('/shop'),
   };
 }
 

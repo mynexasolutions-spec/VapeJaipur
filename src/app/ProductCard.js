@@ -19,7 +19,7 @@ function getPuffs(product) {
 export default function ProductCard({ product }) {
   const imageSrc = product.image.startsWith('/') ? product.image : '/' + product.image;
   const puffs = getPuffs(product);
-  const message = `*NEW ORDER - Vape Shop Jaipur*\n----------------------------------------\n*Product:* ${product.title}\n*Price:* ${product.price}\n----------------------------------------\n\nPlease confirm availability and delivery details. Thank you!`;
+  const message = `*NEW ORDER - Vape Shop Gurugram*\n----------------------------------------\n*Product:* ${product.title}\n*Price:* ${product.price}\n----------------------------------------\n\nPlease confirm availability and delivery details. Thank you!`;
 
   return (
     <div className="product-card shop-card">

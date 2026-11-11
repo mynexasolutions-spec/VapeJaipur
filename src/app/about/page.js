@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import { canonical } from '../../data/site';
 
 export const metadata = {
-  title: "About Us | Vape Shop Jaipur - Premium Vapes & Express Delivery in Jaipur",
-  description: "Discover Vape Shop Jaipur – #1 online vape store for 100% authentic disposable vapes, Elf Bar, AAOK, IGET and VOOPOO vape kits in Jaipur, Rajasthan. 24/7 WhatsApp ordering with express delivery across Jaipur.",
-  keywords: "vape shop jaipur, buy vapes online jaipur, elf bar jaipur, aaok vape jaipur, iget vape jaipur, voopoo jaipur, disposable vape delivery jaipur, vape store jaipur",
+  title: { absolute: "About Us | Vape Shop Gurugram – Premium Vapes & Express Delivery in Gurgaon" },
+  description: "Discover Vape Shop Gurugram – #1 vape store for 100% authentic disposable vapes, Elf Bar, AAOK, IGET and VOOPOO vape kits in Gurugram (Gurgaon), Haryana. 24/7 WhatsApp ordering with express delivery to Cyber City, Cyber Hub and every sector.",
+  keywords: "vape shop gurugram, vape shop gurgaon, buy vapes online gurugram, elf bar gurugram, aaok vape gurugram, iget vape gurugram, voopoo gurugram, disposable vape delivery gurugram, vape store gurugram, vape store cyber city, vape shop cyber hub",
+  alternates: canonical('/about'),
 };
 
 const WA_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z";
@@ -11,14 +13,14 @@ const WA_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.
 const stats = [
   { value: '100%', label: 'Authentic Guarantee', sub: 'Original QR Code Verified' },
   { value: '24/7', label: 'WhatsApp Support', sub: 'Instant Local Ordering' },
-  { value: 'Express', label: 'Local Delivery', sub: 'Across All Jaipur' },
+  { value: 'Express', label: 'Local Delivery', sub: 'Across All Gurugram' },
   { value: '90,000', label: 'Max Puff Capacity', sub: 'AAOK Ultra High-Puff Disposables' },
 ];
 
 const features = [
   {
     title: 'Rapid Local Delivery',
-    text: 'Enjoy express local delivery straight to your doorstep across Jaipur. Fast, reliable, and packaged with ultimate privacy.',
+    text: 'Enjoy express local delivery straight to your doorstep across Gurugram. Fast, reliable, and packaged with ultimate privacy.',
     icon: <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />,
   },
   {
@@ -36,7 +38,7 @@ const features = [
 const steps = [
   { n: '01', title: 'Pick Your Product', text: 'Browse Elf Bar, AAOK, IGET disposables and VOOPOO & Uwell kits.' },
   { n: '02', title: 'Tap Buy on WhatsApp', text: 'Your order message with the product details is ready in one tap.' },
-  { n: '03', title: 'Confirm & Receive', text: 'Our team confirms availability and delivers to your door in Jaipur.' },
+  { n: '03', title: 'Confirm & Receive', text: 'Our team confirms availability and delivers to your door in Gurugram.' },
 ];
 
 const brands = [
@@ -55,9 +57,9 @@ export default function AboutPage() {
         <div className="ab-hero-glow" aria-hidden="true"></div>
         <div className="ab-container ab-hero-grid">
           <div className="ab-hero-text">
-            <span className="ab-pill">Jaipur&apos;s #1 Premium Vape Hub</span>
+            <span className="ab-pill">Gurugram&apos;s #1 Premium Vape Hub</span>
             <h1 className="ab-title">
-              Redefining the Vaping Experience <span>in Jaipur</span>
+              Redefining the Vaping Experience <span>in Gurugram</span>
             </h1>
             <p className="ab-lead">
               Your trusted local destination for 100% authentic disposable vapes, vape kits and pods&mdash;delivered to your doorstep with express speed.
@@ -71,7 +73,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="ab-hero-visual">
-            <img src="/assets/hero-products.webp" alt="Elf Bar, VOOPOO Drag and Argus vapes available at Vape Shop Jaipur" />
+            <img src="/assets/hero-products.webp" alt="Elf Bar, VOOPOO Drag and Argus vapes available at Vape Shop Gurugram" />
           </div>
         </div>
       </section>
@@ -95,9 +97,9 @@ export default function AboutPage() {
         </div>
         <div className="ab-story-text">
           <span className="ab-kicker">Our Story</span>
-          <h2 className="ab-h2">Welcome to Vape Shop Jaipur</h2>
+          <h2 className="ab-h2">Welcome to Vape Shop Gurugram</h2>
           <p>
-            At <strong>Vape Shop Jaipur</strong>, we are committed to revolutionizing how Jaipur vapes. Located right in the heart of Rajasthan&rsquo;s vibrant Pink City, we bring you the world&rsquo;s most acclaimed disposable vape devices, vape kits and pods without the hassle of long waits or doubtful quality.
+            At <strong>Vape Shop Gurugram</strong>, we are committed to revolutionizing how Gurugram vapes. From the office towers of Cyber City and the buzz of Cyber Hub to the societies on Golf Course Road and Sohna Road, we bring you the world&rsquo;s most acclaimed disposable vape devices, vape kits and pods without the hassle of long waits or doubtful quality.
           </p>
           <p>
             We handpick every product in our lineup&mdash;from high-puff <strong>Elf Bar</strong> models and ultra high-puff <strong>AAOK</strong> disposables to <strong>VOOPOO</strong> and <strong>Uwell</strong> vape kits&mdash;ensuring maximum flavour, genuine quality, and complete vaping satisfaction.
@@ -109,7 +111,7 @@ export default function AboutPage() {
       <section className="ab-container ab-section">
         <div className="ab-section-head">
           <span className="ab-kicker">Why Choose Us</span>
-          <h2 className="ab-h2">Built for Jaipur Vapers</h2>
+          <h2 className="ab-h2">Built for Gurugram Vapers</h2>
         </div>
         <div className="ab-features">
           {features.map((f, i) => (
@@ -169,10 +171,10 @@ export default function AboutPage() {
         <div className="ab-cta">
           <h2>Ready to Elevate Your Vaping?</h2>
           <p>
-            Browse our full catalog of Elf Bar, AAOK and IGET disposables, VOOPOO and Uwell vape kits, pods and coils with instant WhatsApp ordering and express Jaipur delivery.
+            Browse our full catalog of Elf Bar, AAOK and IGET disposables, VOOPOO and Uwell vape kits, pods and coils with instant WhatsApp ordering and express delivery across Gurugram.
           </p>
           <div className="ab-btn-row ab-btn-row-center">
-            <Link href="/shop" className="ab-btn ab-btn-primary">Explore All Vapes in Jaipur</Link>
+            <Link href="/shop" className="ab-btn ab-btn-primary">Explore All Vapes in Gurugram</Link>
             <a href="https://wa.me/919203902308" target="_blank" rel="noreferrer" className="ab-btn ab-btn-wa">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d={WA_PATH} /></svg>
               Order on WhatsApp

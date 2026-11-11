@@ -2,28 +2,46 @@ import "./globals.css";
 import Link from 'next/link';
 import Header from './Header';
 import { CartProvider } from './CartContext';
+import { SITE, abs, shareImages, toJsonLd } from '../data/site';
+import { locations } from '../data/locations';
+
+const FOOTER_AREAS = ['cyber-city', 'cyber-hub', 'golf-course-road', 'sohna-road', 'mg-road', 'dlf-phase-3', 'udyog-vihar', 'sector-29'];
+
+const KEYWORDS = [
+  "vape shop gurugram",
+  "vape shop gurgaon",
+  "vape store gurugram",
+  "vape shop near me gurugram",
+  "buy vapes online gurugram",
+  "disposable vapes gurugram",
+  "elf bar gurugram",
+  "elf bar gurgaon",
+  "iget vape gurugram",
+  "aaok vape gurugram",
+  "voopoo gurugram",
+  "vape delivery gurugram",
+  "same day vape delivery gurugram",
+  "30 minute vape delivery gurugram",
+  "express vape delivery gurugram",
+  "original vape gurugram",
+  "vape shop haryana",
+  "vape store cyber city",
+  "vape shop cyber hub",
+  "vape shop cyber city gurugram",
+  ...locations.map((l) => `vape shop ${l.name.toLowerCase()}`),
+];
 
 export const metadata = {
+  ...(SITE.url ? { metadataBase: new URL(SITE.url) } : {}),
   title: {
-    default: "Vape Shop Jaipur | #1 Store for Premium Disposable Vapes & Pods Jaipur",
-    template: "%s | Vape Shop Jaipur"
+    default: "Vape Shop Gurugram - 30-40 Min Express Vape Delivery Original Gurugram",
+    template: "%s | Vape Shop Gurugram"
   },
-  description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET, VOOPOO vape kits & more in Jaipur. Express same-day delivery with cash on delivery & 24/7 WhatsApp support.",
-  keywords: [
-    "vape shop jaipur",
-    "vape shop rajasthan",
-    "buy vapes online jaipur",
-    "disposable vapes jaipur",
-    "elf bar jaipur",
-    "iget vape jaipur",
-    "aaok vape jaipur",
-    "vape delivery jaipur",
-    "vape store mi road jaipur",
-    "same day vape delivery jaipur"
-  ],
-  authors: [{ name: "Vape Shop Jaipur" }],
-  creator: "Vape Shop Jaipur",
-  publisher: "Vape Shop Jaipur",
+  description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET, VOOPOO vape kits & more in Gurugram (Gurgaon). 30-40 min express delivery to Cyber City, Cyber Hub, Golf Course Road, Sohna Road & all sectors. Cash on delivery & 24/7 WhatsApp support.",
+  keywords: [...new Set(KEYWORDS)],
+  authors: [{ name: SITE.name }],
+  creator: SITE.name,
+  publisher: SITE.name,
   robots: {
     index: true,
     follow: true,
@@ -38,55 +56,60 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "Vape Shop Jaipur",
-    title: "Vape Shop Jaipur | #1 Store for Premium Disposable Vapes & Pods Jaipur",
-    description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET & VOOPOO vape kits in Jaipur. Same-day express delivery & cash on delivery available.",
-    images: [
+    siteName: SITE.name,
+    title: "Vape Shop Gurugram - 30-40 Min Express Vape Delivery Original Gurugram",
+    description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET & VOOPOO vape kits in Gurugram. 30-40 min express delivery across Cyber City, Golf Course Road, Sohna Road & all sectors. Cash on delivery available.",
+    images: shareImages([
       {
         url: "/assets/og-logo.jpg",
-        width: 800,
-        height: 600,
-        alt: "Vape Shop Jaipur Logo",
+        width: 1200,
+        height: 630,
+        alt: "Vape Shop Gurugram Logo",
       },
-    ],
+    ]),
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vape Shop Jaipur | Premium Vapes & Express Delivery Jaipur",
-    description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET & VOOPOO vape kits in Jaipur. Same-day express delivery.",
-    images: ["/assets/og-logo.jpg"],
+    title: "Vape Shop Gurugram - 30-40 Min Express Vape Delivery Original Gurugram",
+    description: "Buy 100% authentic disposable vapes, Elf Bar, AAOK, IGET & VOOPOO vape kits in Gurugram. Express delivery across all sectors.",
+    images: shareImages(["/assets/og-logo.jpg"]),
   },
   other: {
-    "geo.region": "IN-RJ",
-    "geo.placename": "Jaipur, Rajasthan, India",
-    "geo.position": "26.9124;75.7873",
-    "ICBM": "26.9124, 75.7873"
+    "geo.region": SITE.stateCode,
+    "geo.placename": "Gurugram, Haryana, India",
+    "geo.position": `${SITE.geo.lat};${SITE.geo.lng}`,
+    "ICBM": `${SITE.geo.lat}, ${SITE.geo.lng}`
   }
 };
 
 export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Vape Shop Jaipur",
-    "image": "https://vapeshopjaipur.in/assets/logo.png",
-    "@id": "https://vapeshopjaipur.in",
-    "url": "https://vapeshopjaipur.in",
-    "telephone": "+919203902308",
+    "@type": "Store",
+    "@id": abs("/#store"),
+    "name": SITE.name,
+    "alternateName": "Vape Shop Gurgaon",
+    "image": abs("/assets/logo.png"),
+    "url": SITE.url || undefined,
+    "telephone": SITE.phoneE164,
     "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "C-Scheme & MI Road",
-      "addressLocality": "Jaipur",
-      "addressRegion": "Rajasthan",
-      "postalCode": "302001",
-      "addressCountry": "IN"
+      "streetAddress": SITE.address.street,
+      "addressLocality": SITE.address.locality,
+      "addressRegion": SITE.address.region,
+      "postalCode": SITE.address.postalCode,
+      "addressCountry": SITE.address.country
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 26.9124,
-      "longitude": 75.7873
+      "latitude": SITE.geo.lat,
+      "longitude": SITE.geo.lng
     },
+    "areaServed": [
+      { "@type": "City", "name": "Gurugram", "alternateName": "Gurgaon" },
+      ...locations.map((l) => ({ "@type": "Place", "name": `${l.name}, Gurugram, Haryana` }))
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -102,7 +125,7 @@ export default function RootLayout({ children }) {
       "closes": "23:59"
     },
     "sameAs": [
-      "https://wa.me/919203902308"
+      `https://wa.me/${SITE.whatsapp}`
     ]
   };
 
@@ -111,7 +134,7 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
         />
       </head>
       <body>
@@ -134,10 +157,10 @@ export default function RootLayout({ children }) {
             <div className="container footer-grid">
               <div className="footer-col brand-col">
                 <div className="footer-brand-title">
-                  <img src="/assets/logo.png" alt="Vape Shop Jaipur Logo" className="footer-brand-logo" />
+                  <img src="/assets/logo.png" alt="Vape Shop Gurugram Logo" className="footer-brand-logo" />
                 </div>
                 <p className="footer-brand-desc">
-                  #1 trusted online vape store in Jaipur. Premium disposable vapes, vape kits & pods with fast express delivery.
+                  #1 trusted vape store in Gurugram (Gurgaon). Premium disposable vapes, vape kits & pods with fast express delivery to Cyber City, Cyber Hub, Golf Course Road, Sohna Road and every sector.
                 </p>
                 <div className="footer-contact-info">
                   <p className="footer-info-row">
@@ -145,7 +168,7 @@ export default function RootLayout({ children }) {
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>Jaipur, Rajasthan, India</span>
+                    <span>Gurugram (Gurgaon), Haryana, India</span>
                   </p>
                   <a href="https://wa.me/919203902308" target="_blank" rel="noreferrer" className="footer-info-row footer-wa-link">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -176,10 +199,21 @@ export default function RootLayout({ children }) {
                 <Link href="#">Terms & Conditions</Link>
                 <Link href="#">Privacy Policy</Link>
               </div>
+
+              <div className="footer-col">
+                <h4>Delivery Areas</h4>
+                {FOOTER_AREAS.map((slug) => {
+                  const area = locations.find((l) => l.slug === slug);
+                  return area ? (
+                    <Link key={slug} href={`/vape-shop/${slug}`}>Vape Shop {area.name}</Link>
+                  ) : null;
+                })}
+                <Link href="/vape-shop">All Gurugram Areas →</Link>
+              </div>
             </div>
 
             <div className="footer-bottom container">
-              <p>&copy; {new Date().getFullYear()} Vape Shop Jaipur. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Vape Shop Gurugram. All rights reserved.</p>
               <div className="footer-badges">
                 <span className="badge-item">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -192,7 +226,7 @@ export default function RootLayout({ children }) {
                     <rect x="2" y="6" width="20" height="12" rx="2"></rect>
                     <circle cx="12" cy="12" r="2"></circle>
                   </svg>
-                  Cash On Delivery
+                  COD &amp; UPI Payment
                 </span>
                 <span className="badge-item">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
