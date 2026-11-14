@@ -37,7 +37,7 @@ export default function ProductCard({ product }) {
       </Link>
       <div className="shop-card-actions">
         <a
-          href={`https://wa.me/919203902308?text=${encodeURIComponent(message)}`}
+          href={`https://wa.me/919828275698?text=${encodeURIComponent(message)}`}
           target="_blank"
           rel="noreferrer"
           className="whatsapp-buy-btn"

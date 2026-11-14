@@ -58,7 +58,7 @@ export default function Home() {
             </ul>
             <div className="jp-hero-cta">
               <Link href="/shop" className="jp-hero-btn">SHOP NOW</Link>
-              <a href="https://wa.me/919203902308" target="_blank" rel="noreferrer" className="jp-hero-btn jp-hero-btn-ghost">ORDER ON WHATSAPP</a>
+              <a href="https://wa.me/919828275698" target="_blank" rel="noreferrer" className="jp-hero-btn jp-hero-btn-ghost">ORDER ON WHATSAPP</a>
             </div>
           </div>
           <HeroImageSlider images={heroImages} />

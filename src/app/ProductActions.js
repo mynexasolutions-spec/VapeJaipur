@@ -13,7 +13,7 @@ export default function ProductActions({ product }) {
 
   const whatsappLink = () => {
     const message = `*NEW ORDER - Vape Shop Gurugram*\n----------------------------------------\n*Product:* ${product.title}\n*Quantity:* ${qty}\n*Price:* ${product.price}\n----------------------------------------\n\nPlease confirm availability and delivery details. Thank you!`;
-    return `https://wa.me/919203902308?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/919828275698?text=${encodeURIComponent(message)}`;
   };
 
   return (

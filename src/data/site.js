@@ -3,16 +3,17 @@
 
 export const SITE = {
   name: 'Vape Shop Gurugram',
-  // Live domain, e.g. NEXT_PUBLIC_SITE_URL=https://example.com (set in the host's env settings, no trailing slash).
-  // Left empty for now: canonical URLs, sitemap and absolute schema URLs are skipped until it is set.
-  url: (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/+$/, ''),
+  // Live domain (no trailing slash). Can be overridden with NEXT_PUBLIC_SITE_URL in the host's env settings.
+  // Used for canonical URLs, sitemap, robots.txt, share images and schema.
+  // If empty, those absolute-URL features are skipped.
+  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vapestoregurugram.in').replace(/\/+$/, ''),
   city: 'Gurugram',
   cityAlt: 'Gurgaon',
   state: 'Haryana',
   stateCode: 'IN-HR',
-  phoneDisplay: '+91 92039 02308',
-  phoneE164: '+919203902308',
-  whatsapp: '919203902308',
+  phoneDisplay: '+91 98282 75698',
+  phoneE164: '+919828275698',
+  whatsapp: '919828275698',
   address: {
     // TODO: replace with the exact shop address (must match the Google Business Profile).
     street: 'DLF Cyber City, DLF Phase 2',

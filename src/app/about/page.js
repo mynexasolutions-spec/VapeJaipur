@@ -66,7 +66,7 @@ export default function AboutPage() {
             </p>
             <div className="ab-btn-row">
               <Link href="/shop" className="ab-btn ab-btn-primary">Explore All Vapes</Link>
-              <a href="https://wa.me/919203902308" target="_blank" rel="noreferrer" className="ab-btn ab-btn-wa">
+              <a href="https://wa.me/919828275698" target="_blank" rel="noreferrer" className="ab-btn ab-btn-wa">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d={WA_PATH} /></svg>
                 Order on WhatsApp
               </a>
@@ -175,7 +175,7 @@ export default function AboutPage() {
           </p>
           <div className="ab-btn-row ab-btn-row-center">
             <Link href="/shop" className="ab-btn ab-btn-primary">Explore All Vapes in Gurugram</Link>
-            <a href="https://wa.me/919203902308" target="_blank" rel="noreferrer" className="ab-btn ab-btn-wa">
+            <a href="https://wa.me/919828275698" target="_blank" rel="noreferrer" className="ab-btn ab-btn-wa">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d={WA_PATH} /></svg>
               Order on WhatsApp
             </a>
